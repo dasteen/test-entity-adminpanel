@@ -56,33 +56,44 @@
 
                 <li class="divider"></li>
 
-                <li class="nav-item nav-dropdown {{
-                    active_class(Active::checkUriPattern('admin/log-viewer*'), 'open')
-                }}">
-                        <a class="nav-link nav-dropdown-toggle {{
-                            active_class(Active::checkUriPattern('admin/log-viewer*'))
-                        }}" href="#">
-                        <i class="nav-icon fas fa-list"></i> @lang('menus.backend.log-viewer.main')
-                    </a>
+                {{--<li class="nav-item nav-dropdown {{--}}
+                    {{--active_class(Active::checkUriPattern('admin/log-viewer*'), 'open')--}}
+                {{--}}">--}}
+                        {{--<a class="nav-link nav-dropdown-toggle {{--}}
+                            {{--active_class(Active::checkUriPattern('admin/log-viewer*'))--}}
+                        {{--}}" href="#">--}}
+                        {{--<i class="nav-icon fas fa-list"></i> @lang('menus.backend.log-viewer.main')--}}
+                    {{--</a>--}}
 
-                    <ul class="nav-dropdown-items">
-                        <li class="nav-item">
-                            <a class="nav-link {{
-                            active_class(Active::checkUriPattern('admin/log-viewer'))
-                        }}" href="{{ route('log-viewer::dashboard') }}">
-                                @lang('menus.backend.log-viewer.dashboard')
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{
-                            active_class(Active::checkUriPattern('admin/log-viewer/logs*'))
-                        }}" href="{{ route('log-viewer::logs.list') }}">
-                                @lang('menus.backend.log-viewer.logs')
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                    {{--<ul class="nav-dropdown-items">--}}
+                        {{--<li class="nav-item">--}}
+                            {{--<a class="nav-link {{--}}
+                            {{--active_class(Active::checkUriPattern('admin/log-viewer'))--}}
+                        {{--}}" href="{{ route('log-viewer::dashboard') }}">--}}
+                                {{--@lang('menus.backend.log-viewer.dashboard')--}}
+                            {{--</a>--}}
+                        {{--</li>--}}
+                        {{--<li class="nav-item">--}}
+                            {{--<a class="nav-link {{--}}
+                            {{--active_class(Active::checkUriPattern('admin/log-viewer/logs*'))--}}
+                        {{--}}" href="{{ route('log-viewer::logs.list') }}">--}}
+                                {{--@lang('menus.backend.log-viewer.logs')--}}
+                            {{--</a>--}}
+                        {{--</li>--}}
+                    {{--</ul>--}}
+                {{--</li>--}}
             @endif
+            <li class="nav-item">
+                <a class="nav-link {{
+                                active_class(Active::checkUriPattern('admin/tiles*'))
+                            }}" href="{{ route('admin.tiles.index') }}">
+                    <i class="nav-icon fas fa-list"></i> Tiles
+
+                    @if ($pending_approval > 0)
+                        <span class="badge badge-danger">{{ $pending_approval }}</span>
+                    @endif
+                </a>
+            </li>
         </ul>
     </nav>
 
